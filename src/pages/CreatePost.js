@@ -9,6 +9,7 @@ function CreatePost() {
 
     //^this is the important step.when we click on the submit button the data will store on the database
     const createPost = async () =>{
+        await addDoc()
 
     }
 
