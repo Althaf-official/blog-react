@@ -11,7 +11,7 @@ function CreatePost() {
     //^this is the important step.when we click on the submit button the data will store on the database
     const postsCollectionRef =collection(db, "posts")
     const createPost = async () =>{
-        await addDoc(postsCollectionRef)
+        await addDoc(postsCollectionRef,{ title,postText,author:{name: , id: }})
 
     }
 
