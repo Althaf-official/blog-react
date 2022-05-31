@@ -20,7 +20,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home/> }/>
         <Route path="/createpost" element={<CreatePost/> }/>
-        <Route path="/login" element={<Login/> }/>
+        <Route path="/login" element={<Login setIsAuth={setIsAuth}/> }/>
       </Routes>
     </Router>
   );
