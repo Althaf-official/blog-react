@@ -9,7 +9,7 @@ function CreatePost() {
     //("")   means pass the value as a string
 
     //^this is the important step.when we click on the submit button the data will store on the database
-    const postsCollectionRef =collection(db)
+    const postsCollectionRef =collection(db, "")
     const createPost = async () =>{
         await addDoc()
 
