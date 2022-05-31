@@ -1,3 +1,4 @@
+import { async } from '@firebase/util'
 import React, { useState } from 'react'
 
 function CreatePost() {
@@ -5,6 +6,10 @@ function CreatePost() {
     const [postText, setPostText] = useState("")
     //("")   means pass the value as a string
 
+    //^this is the important step.when we click on the submit button the data will store on the database
+    const createPost = async () =>{
+        
+    }
 
     return (
         <div className='createPostPage'>
