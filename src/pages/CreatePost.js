@@ -1,7 +1,8 @@
 import { async } from '@firebase/util'
 import React, { useState } from 'react'
 import { addDoc, collection } from "firebase/firestore"
-import { db } from '../firebase-config'
+import { db ,auth} from '../firebase-config'
+import {useNavigate} from "react-router-dom"
 
 function CreatePost() {
     const [title, setTitle] = useState("")
@@ -10,12 +11,14 @@ function CreatePost() {
 
     //^this is the important step.when we click on the submit button the data will store on the database
     const postsCollectionRef = collection(db, "posts")
+    let navigate=useNavigate();
     const createPost = async () => {
         await addDoc(postsCollectionRef, {
              title, 
              postText, 
              author: { name: auth.currentUser.displayName, id:auth.currentUser.uid },
          })// take the information from the user
+         navigate('/');
 
     }
 
