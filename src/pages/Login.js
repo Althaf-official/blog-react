@@ -2,6 +2,13 @@ import React from 'react'
 import {auth,provider } from "../firebase-config"
 
 function Login() {
+
+
+    const signInWithGoogle = () =>{
+        
+    }
+
+
   return (
     <div className='loginPage'>
         <p>Sign In With Google</p>
