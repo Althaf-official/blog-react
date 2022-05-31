@@ -2,8 +2,10 @@ import React from 'react'
 
 function Login() {
   return (
-    <div>
-      Login
+    <div className='loginPage'>
+        <p>Sign In With Google</p>
+        <button className='login-with-google-btn'>Sign In With Google</button>
+      
     </div>
   )
 }
