@@ -1,23 +1,25 @@
 import './App.css'
-import {BrowserRouter as Router, Routes, Route,Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Home from "./pages/Home";
 import CreatePost from "./pages/CreatePost";
 import Login from "./pages/Login";
 import { useState } from 'react';
-import { signOut} from "firebase/auth"
+import { signOut } from "firebase/auth"
 import { auth } from './firebase-config';
-import {useNavigate } from "react-router-dom"
+
+
 
 function App() {
-  const [isAuth,setIsAuth] = useState(false);
+  const [isAuth, setIsAuth] = useState(false);
 
-  let navigate = useNavigate()
+  
 
-  const signUserOut = ()=>{
-    signOut(auth).then(()=>{
+  const signUserOut = () => {
+    signOut(auth).then(() => {
       localStorage.clear()
       setIsAuth(false)
-      navigate("/login")
+      window.location.pathname= "/login"
+      //instead of calling useNavigation i use this method .because we cannot use useNavigation inside the router
     })
 
   }
@@ -28,16 +30,19 @@ function App() {
       <nav>
         <Link to="/"> Home</Link>
         <Link to="/createpost"> Create Post</Link>
-        {!isAuth ? <Link to="/login"> login</Link>: <button> log Out</button>}
+        {!isAuth ? (
+          <Link to="/login"> login</Link>
+        ) : (
+          <button onClick={signUserOut}> log Out</button>
+        )}
       </nav>
       <Routes>
-        <Route path="/" element={<Home/> }/>
-        <Route path="/createpost" element={<CreatePost/> }/>
-        <Route path="/login" element={<Login setIsAuth={setIsAuth}/> }/>
+        <Route path="/" element={<Home />} />
+        <Route path="/createpost" element={<CreatePost />} />
+        <Route path="/login" element={<Login setIsAuth={setIsAuth} />} />
       </Routes>
     </Router>
   );
 }
 
 export default App;
- 
