@@ -1,18 +1,16 @@
 import React from 'react'
 import { auth, provider } from "../firebase-config"
 import { signInWithPopup } from "firebase/auth"
+import {useNavigate } from "react-router-dom"
 
 function Login({setIsAuth}) {
     const signInWithGoogle = () => {
         //i call the imported function signInWithGoogle and i pass the auth and provider wich is i created in firebase-config.js file
         signInWithPopup(auth, provider).then((result) => { //the user data will be in the result.
-            localStorage.setItem("isAuth",true);
-            setIsAuth(true)
-
-        })
-    } 
-
-
+            localStorage.setItem("isAuth", true);
+            setIsAuth(true);
+        });
+    };
 return (
     <div className='loginPage'>
         <p>Sign In With Google</p>
