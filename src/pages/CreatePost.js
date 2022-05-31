@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 
 function CreatePost() {
-    const [title,setTitle]= useState("")
-    const [postText,setPostText]= useState("")
+    const [title, setTitle] = useState("")
+    const [postText, setPostText] = useState("")
     //("")   means pass the value as a string
 
 
@@ -12,11 +12,15 @@ function CreatePost() {
                 <h1>Create A Post</h1>
                 <div className='inputGp'>
                     <label>Title:</label>
-                    <input placeholder='Title...' />
+                    <input placeholder='Title...' onChange={(event) => {
+                        setTitle(event.target.value);//whenever there is a change we grab the value using this setTitle
+                    }} />
                 </div>
                 <div className='inputGp'>
                     <label>Post:</label>
-                    <textarea placeholder='Post...' />
+                    <textarea placeholder='Post...' onChange={(event) => {
+                        setPostText(event.target.value);
+                    }} />
                 </div>
                 <button>Submit Post</button>
             </div>
