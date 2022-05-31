@@ -1,6 +1,7 @@
 import { async } from '@firebase/util'
 import React, { useState } from 'react'
 import { addDoc, collection } from "firebase/firestore"
+import { db } from '../firebase-config'
 
 function CreatePost() {
     const [title, setTitle] = useState("")
@@ -8,7 +9,7 @@ function CreatePost() {
     //("")   means pass the value as a string
 
     //^this is the important step.when we click on the submit button the data will store on the database
-    const postsCollectionRef =collection
+    const postsCollectionRef =collection(db)
     const createPost = async () =>{
         await addDoc()
 
