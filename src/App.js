@@ -6,15 +6,18 @@ import Login from "./pages/Login";
 import { useState } from 'react';
 import { signOut} from "firebase/auth"
 import { auth } from './firebase-config';
-
+import {useNavigate } from "react-router-dom"
 
 function App() {
   const [isAuth,setIsAuth] = useState(false);
+
+  let navigate = useNavigate()
 
   const signUserOut = ()=>{
     signOut(auth).then(()=>{
       localStorage.clear()
       setIsAuth(false)
+      navigate("/login")
     })
 
   }
