@@ -10,7 +10,7 @@ function Login({setIsAuth}) {
             setIsAuth(true)
 
         })
-    }
+    } 
 
 
 return (
