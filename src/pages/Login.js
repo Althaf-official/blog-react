@@ -2,7 +2,7 @@ import React from 'react'
 import { auth, provider } from "../firebase-config"
 import { signInWithPopup } from "firebase/auth"
 
-function Login() {
+function Login({setIsAuth}) {
     const signInWithGoogle = () => {
         //i call the imported function signInWithGoogle and i pass the auth and provider wich is i created in firebase-config.js file
         signInWithPopup(auth, provider).then((result) => { //the user data will be in the result.
