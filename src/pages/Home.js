@@ -17,8 +17,12 @@ function Home() {
         <div className='homePage'>{postLists.map((post) => {// {postLists.map((post) - postList is grab all the document from collection.  and .map -for catch each one of them 
             return <div className='post'>
                 <div className='postHeader'>
-                    <div className='title'><h1>{post.title}</h1></div>
+                    <div className='title'>
+                        <h1>{post.title}</h1>
+                    </div>
                 </div>
+                <div className='postTextContainer'>{post.postText}</div>
+                <h6>@{post.author.name}</h6>
             </div>//in the map(post) is holding each one data
 
         })}</div>
