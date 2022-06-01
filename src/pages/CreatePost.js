@@ -1,5 +1,5 @@
 import { async } from '@firebase/util'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { addDoc, collection } from "firebase/firestore"
 import { db ,auth} from '../firebase-config'
 import {useNavigate} from "react-router-dom"
@@ -19,8 +19,11 @@ function CreatePost() {
              author: { name: auth.currentUser.displayName, id:auth.currentUser.uid },
          })// take the information from the user
          navigate('/');
-
     }
+
+    useEffect(()=>{
+
+    },[])
 
     return (
         <div className='createPostPage'>
