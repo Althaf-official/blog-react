@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import { getDocs, collection, deleteDoc ,doc} from 'firebase/firestore'
+import { getDocs, collection, deleteDoc, doc } from 'firebase/firestore'
 import { auth, db } from '../firebase-config'
 import { async } from '@firebase/util'
-function Home({isAuth}) {
+function Home({ isAuth }) {
     //~Now i want to list all the post in the database
     const [postLists, setPostList] = useState([])//initialize as a empty array
     const postsCollectionRef = collection(db, "posts")
@@ -15,10 +15,10 @@ function Home({isAuth}) {
         getPosts()
     })
 
-    const deletePost = async(id)=>{
-        const postDoc= doc(db,"posts",id )// this function is for specify which document we want to delete. this function we imported from firestore
+    const deletePost = async (id) => {
+        const postDoc = doc(db, "posts", id)// this function is for specify which document we want to delete. this function we imported from firestore
         await deleteDoc(postDoc)//call the function for delete. firestore function. now we need specify which document we want to delete
-    } 
+    }
     return (
         <div className='homePage'>{postLists.map((post) => {// {postLists.map((post) - postList is grab all the document from collection.  and .map -for catch each one of them 
             return <div className='post'>
@@ -28,7 +28,7 @@ function Home({isAuth}) {
                     </div>
                     <div className='deletePost'>
                         {isAuth && post.author.id === auth.currentUser.uid && (
-                        <button onClick={()=>{deletePost(post.id)}}> &#128465;</button>)}
+                            <button onClick={() => { deletePost(post.id) }}> &#128465;</button>)}
                     </div>
                 </div>
                 <div className='postTextContainer'>{post.postText}</div>
