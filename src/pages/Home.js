@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { getDocs, collection, deleteDoc } from 'firebase/firestore'
+import { getDocs, collection, deleteDoc ,doc} from 'firebase/firestore'
 import { db } from '../firebase-config'
 import { async } from '@firebase/util'
 function Home() {
@@ -16,7 +16,7 @@ function Home() {
     })
 
     const deletePost = async()=>{
-        await deleteDoc()//call the function for delete. firestore function
+        await deleteDoc()//call the function for delete. firestore function. now we need specify which document we want to delete
     }
 
 
