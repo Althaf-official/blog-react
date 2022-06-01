@@ -29,11 +29,14 @@ function App() {
     <Router>
       <nav>
         <Link to="/"> Home</Link>
-        <Link to="/createpost"> Create Post</Link>
+        
         {!isAuth ? (
           <Link to="/login"> login</Link>
         ) : (
+          <>
+          <Link to="/createpost"> Create Post</Link>
           <button onClick={signUserOut}> log Out</button>
+          </>
         )}
       </nav>
       <Routes>
