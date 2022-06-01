@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import {getDocs} from 'firebase/firestore'
+import {getDocs,collection} from 'firebase/firestore'
+import {db} from '../firebase-config'
 function Home() {
     //~Now i want to list all the post in the database
     const [postLists,setPostList] =useState([])//initialize as a empty array
@@ -8,6 +9,7 @@ function Home() {
     useEffect(()=>{//i will use useEffect for showing the data async
         const getPosts =async()=>{
             const data = await getDocs(postsCollectionRef)
+            console.log(data);
         }
     })
   return (
