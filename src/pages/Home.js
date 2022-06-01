@@ -31,7 +31,7 @@ function Home() {
                         <h1>{post.title}</h1>
                     </div>
                     <div className='deletePost'>
-                        <button> &#128465;</button>
+                        <button onClick={()=>{deletePost(post.id)}}> &#128465;</button>
                     </div>
                 </div>
                 <div className='postTextContainer'>{post.postText}</div>
