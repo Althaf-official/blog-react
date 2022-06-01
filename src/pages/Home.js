@@ -17,7 +17,7 @@ function Home() {
 
     const deletePost = async(id)=>{
         const postDoc= doc(db,"posts",id )// this function is for specify which document we want to delete. this function we imported from firestore
-        await deleteDoc()//call the function for delete. firestore function. now we need specify which document we want to delete
+        await deleteDoc(postDoc)//call the function for delete. firestore function. now we need specify which document we want to delete
     }
 
 
