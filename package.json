@@ -1,6 +1,6 @@
-{ 
-  "homepage": "https://althaf-official.github.io/blog-react/",
-  "name": "olx-app-demo",
+{
+  "homepage": "https://althaf-official.github.io/blog-react",
+  "name": "blog-react",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
