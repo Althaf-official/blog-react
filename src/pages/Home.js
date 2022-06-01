@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import { getDocs, collection } from 'firebase/firestore'
+import { getDocs, collection, deleteDoc } from 'firebase/firestore'
 import { db } from '../firebase-config'
+import { async } from '@firebase/util'
 function Home() {
     //~Now i want to list all the post in the database
     const [postLists, setPostList] = useState([])//initialize as a empty array
@@ -13,6 +14,14 @@ function Home() {
         }
         getPosts()
     })
+
+    const deletePost = async()=>{
+        await deleteDoc()//call the function for delete. firestore function
+    }
+
+
+
+
     return (
         <div className='homePage'>{postLists.map((post) => {// {postLists.map((post) - postList is grab all the document from collection.  and .map -for catch each one of them 
             return <div className='post'>
