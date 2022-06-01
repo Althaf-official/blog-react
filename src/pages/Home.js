@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { getDocs, collection, deleteDoc ,doc} from 'firebase/firestore'
 import { auth, db } from '../firebase-config'
 import { async } from '@firebase/util'
-function Home() {
+function Home({isAuth}) {
     //~Now i want to list all the post in the database
     const [postLists, setPostList] = useState([])//initialize as a empty array
     const postsCollectionRef = collection(db, "posts")
