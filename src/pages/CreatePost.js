@@ -4,7 +4,7 @@ import { addDoc, collection } from "firebase/firestore"
 import { db ,auth} from '../firebase-config'
 import {useNavigate} from "react-router-dom"
 
-function CreatePost() {
+function CreatePost({isAuth}) {//isAuth i grab from the props.because i will use for useEffect to prevent someone calling '/createpost' page
     const [title, setTitle] = useState("")
     const [postText, setPostText] = useState("")
     //("")   means pass the value as a string
@@ -22,7 +22,10 @@ function CreatePost() {
     }
 
     useEffect(()=>{
+        if(!isAuth){//if the person is not authenticated
+            navigate('/login');//it will redirected to the login page
 
+        }
     },[])
 
     return (
