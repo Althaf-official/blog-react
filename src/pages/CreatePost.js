@@ -38,7 +38,7 @@ function CreatePost() {
                         setPostText(event.target.value);
                     }} />
                 </div>
-                <button>Submit Post</button>
+                <button onClick={createPost}>Submit Post</button>
             </div>
         </div>
     )
