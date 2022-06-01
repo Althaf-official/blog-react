@@ -9,7 +9,7 @@ function Home() {
     useEffect(() => {//i will use useEffect for showing the data async
         const getPosts = async () => {
             const data = await getDocs(postsCollectionRef)
-            console.log(data.docs.map((doc)=>({...doc.data(), id:doc.id})));
+            setPostList(data.docs.map((doc)=>({...doc.data(), id:doc.id})));
         }
         getPosts()
     })
