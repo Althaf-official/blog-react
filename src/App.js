@@ -7,13 +7,8 @@ import { useState } from 'react';
 import { signOut } from "firebase/auth"
 import { auth } from './firebase-config';
 
-
-
 function App() {
   const [isAuth, setIsAuth] = useState(localStorage.getItem("isAuth"));
- 
-  
-
   const signUserOut = () => {
     signOut(auth).then(() => {
       localStorage.clear()
@@ -21,10 +16,7 @@ function App() {
       window.location.pathname= "/login"
       //instead of calling useNavigation i use this method .because we cannot use useNavigation inside the router
     })
-
   }
-
-
   return (
     <Router>
       <nav>
@@ -47,5 +39,4 @@ function App() {
     </Router>
   );
 }
-
 export default App;
